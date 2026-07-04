@@ -1,0 +1,12 @@
+cara run e    1.- python3 -m venv .venv
+                - python -m venv .venv
+
+              2.pip install -r requirements.txt
+
+
+terminal
+
+python fp_amcc.py
+
+
+app.py nanti untuk streamlit
