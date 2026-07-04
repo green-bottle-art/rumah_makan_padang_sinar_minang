@@ -42,6 +42,14 @@ labor_cost = st.sidebar.number_input(
     "Labor Cost (Rupiah)",
 )
 
+REGION_MAP = {
+    "Garut": 0,
+    "Indramayu": 1,
+    "Karawang": 2,
+    "Subang": 3,
+    "Tasikmalaya": 4
+}
+
 
 
 
