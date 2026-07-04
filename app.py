@@ -12,7 +12,7 @@ st.set_page_config(
 st.title("Hahahahaha")
 
 # LOAD MODEL
-rf_model = joblib.load("models/rf_model.pkl")
+rf_model = joblib.load("models/rf_farmer_model.pkl")
 scaler = joblib.load("models/scaler_rf.pkl")
 
 st.sidebar.header("Input Data")
