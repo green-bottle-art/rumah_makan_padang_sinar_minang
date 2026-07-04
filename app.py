@@ -50,7 +50,17 @@ REGION_MAP = {
     "Tasikmalaya": 4
 }
 
+#### Prediksi
+x = np.array([[
+    land_area,
+    seed_cost,
+    fertilizer_cost,
+    labor_cost,
+    REGION_MAP[region]
+]])
 
 
+x = scaler.transform(x)
+prediction = rf_model.predict(x)
 
 
