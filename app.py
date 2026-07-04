@@ -12,4 +12,12 @@ st.set_page_config(
 st.title("Hahahahaha")
 
 
+rf_model = joblib.load("models/rf_model.pkl")
+scaler = joblib.load("models/scaler_rf.pkl")
+
+
+
+
+
+
 
