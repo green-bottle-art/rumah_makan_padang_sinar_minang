@@ -51,17 +51,37 @@ REGION_MAP = {
 }
 
 #### Prediksi
-x = np.array([[
-    land_area,
-    seed_cost,
-    fertilizer_cost,
-    labor_cost,
-    REGION_MAP[region]
-]])
+# x = np.array([[
+#     land_area,
+#     seed_cost,
+#     fertilizer_cost,
+#     labor_cost,
+#     REGION_MAP[region]
+# ]])
+
+import pandas as pd
+
+df_input = pd.DataFrame({
+    "Land area (m2)": [land_area],
+    "Land lease value (IDR)": [land_lease],
+    "Labor cost (IDR)": [labor],
+    "Seed purchase value (IDR)": [seed],
+    "Fertilizer purchase value (IDR)": [fertilizer],
+    "Pesticide purchase value (IDR)": [pesticide],
+    "Equipment rent value (IDR)": [equipment],
+    "region_encoded": [REGION_MAP[region]],
+    "cost_per_m2": [cost_per_m2],
+    "fertilizer_ratio": [fertilizer_ratio],
+    "labor_ratio": [labor_ratio],
+})
+
+df_scaled = scaler.transform(df_input)
+
+prediction = rf_model.predict(df_scaled)
 
 
-x = scaler.transform(x)
-prediction = rf_model.predict(x)
+# x = scaler.transform(x)
+# prediction = rf_model.predict(x)
 
 
 if st.button("Predict"):
