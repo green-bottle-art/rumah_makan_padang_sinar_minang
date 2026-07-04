@@ -64,3 +64,9 @@ x = scaler.transform(x)
 prediction = rf_model.predict(x)
 
 
+if st.button("Predict"):
+    st.metric(
+        "Predicted Rice Production",
+        f"{prediction[0]:,.2f} kg"
+    )
+
