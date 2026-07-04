@@ -10,3 +10,5 @@ python fp_amcc.py
 
 
 app.py nanti untuk streamlit
+
+cara menjalankan= streamlit run app.py
