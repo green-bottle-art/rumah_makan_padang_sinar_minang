@@ -27,9 +27,16 @@ pesticide_cost = st.sidebar.number_input("Pesticide Cost", 0.0, 1000000.0, 10000
 equipment_cost = st.sidebar.number_input("Equipment Rent", 0.0, 2000000.0, 200000.0)
 
 # 3. PERHITUNGAN FITUR
-total_cost = land_lease + labor_cost + seed_cost + fertilizer_cost + pesticide_cost + equipment_cost
+total_cost = (
+    land_lease + 
+    labor_cost + 
+    seed_cost + 
+    fertilizer_cost + 
+    pesticide_cost + 
+    equipment_cost
+    )
 cost_per_m2 = total_cost / land_area
-fertilizer_ratio = fertilizer_cost / land_area
+fertilizer_ratio = fertilizer_cost / total_cost
 labor_ratio = labor_cost / land_area
 region_val = {"Garut": 0, "Indramayu": 1, "Karawang": 2, "Subang": 3, "Tasikmalaya": 4}[region]
 
@@ -38,9 +45,18 @@ if st.button("🚀 Jalankan Prediksi"):
     # Urutan array harus SAMA PERSIS dengan urutan fitur saat training di Colab
     # Sesuaikan urutan di bawah ini jika hasil prediksi terasa aneh
     input_data = np.array([[
-        land_area, land_lease, labor_cost, seed_cost, 
-        fertilizer_cost, pesticide_cost, equipment_cost, 
-        cost_per_m2, fertilizer_ratio, labor_ratio, region_val
+        land_area, 
+        land_lease, 
+        labor_cost, 
+        seed_cost, 
+        fertilizer_cost, 
+        pesticide_cost, 
+        equipment_cost, 
+        region_val,
+        cost_per_m2, 
+        fertilizer_ratio, 
+        labor_ratio, 
+        
     ]])
     
     try:
